@@ -1,0 +1,24 @@
+body {
+    background-color: salmon;
+} 
+h1 {
+    color: burlywood;
+    background-image: url('chinook.jpg');
+    text-align: center;
+    font-size: 20ch;
+}
+#all-locations{
+    background-color: aquamarine;  
+    display: inline-block;
+    text-align: center;
+}
+.location{
+    background-color: papayawhip;
+}
+.row {
+    display: flex;
+}
+.column {
+    flex: 33.33%;
+    padding: 5px;
+}
