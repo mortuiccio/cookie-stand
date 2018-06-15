@@ -42,27 +42,66 @@ function CreateLocation(name,minCustomer,maxCustomer,averCokPerCus) {
       console.log('inside render', store.name)    
       var table = document.getElementById('sales')
       console.log(table) 
+      var tablebody =document.createElement('tbody')
+
       var trEl = document.createElement('tr')
       var tdEl = document.createElement('td')
       var name = tdEl
       name.textContent = store.name
       trEl.appendChild (tdEl)
-      table.appendChild(trEl)
+    //   tablebody.appendChild(trEl)
+
+    //   table.appendChild(tablebody)
+
       for(var i =0; i< store.randCustHour.length;i++){
+      console.log(store.randCustHour[i])
+
+    //   var trEl = document.createElement('tr')
+
+      var tdEl = document.createElement('td')
       tdEl.textContent = store.randCustHour[i]
       trEl.appendChild (tdEl)
       }
-      tdEl.textContent = store.sales 
+      tdEl = document.createElement('td')
+      tdEl.textContent = store.totalcookies 
       trEl.appendChild (tdEl)
+      tablebody.appendChild(trEl)
       console.log(trEl)
-      table.appendChild(trEl)
+      table.appendChild(tablebody)
       }
       function renderAll(arr){
           for(var i =0; i< arr.length ;i++){
               renderSales(arr[i])
           }
       }
+      function addlocation (ev){
+        console.log() 
+          ev.preventDefault()
+          var name = ev.target.storeName.value;
+          var min = ev.target.min.value;
+          var max = ev.target.max.value;
+          var aver = ev.target.aver.value;
+          var newLocation = new  CreateLocation(name,min,max,aver)
+          renderSales(newLocation)
+      }
       renderAll(alLocal)
+
+      var form = document.getElementById('form')
+      console.log(form)
+      form.addEventListener('submit', function(ev){
+       
+            console.log('poop') 
+              ev.preventDefault()
+              var name = ev.target.storeName.value;
+              var min = ev.target.min.value;
+              var max = ev.target.max.value;
+              var aver = ev.target.aver.value;
+              var newLocation = new  CreateLocation(name,min,max,aver)
+              renderSales(newLocation)
+         
+
+      })
+
 // var firstPike = {
 //     minCustomer: 23,
 //     maxCustomer: 65,
